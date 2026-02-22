@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Block Factory Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="IMAGE_LBF.webp" alt="Lucky Block Logo" class="main-logo">
+            <div class="credits">by Saderrax and DakEry</div>
+        </div>
+
+        <h1 class="top-title">Lucky Block Factory - Brainrot calculator</h1>
+
+        <div class="header-right">
+            <button class="top-btn reset" onclick="resetAll()">Reset</button>
+            <button class="top-btn copy" onclick="copyResult()">Copy</button>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <section class="card inputs">
+            <div class="card-header">
+                <h2>Inputs</h2>
+                <span class="badge">Live</span>
+            </div>
+            
+            <label>Brainrot Item</label>
+            <select id="brainrotSelect" onchange="calculate()"></select>
+
+            <label>Level</label>
+            <div class="input-container">
+                <input type="number" id="levelInput" value="1" min="1" oninput="calculate()">
+            </div>
+            <p class="hint">+33% per level after 1</p>
+        </section>
+
+        <section class="card mutations-section">
+            <h2>Mutations</h2>
+            <p class="hint">Tap to toggle. Multipliers stack.</p>
+            <div class="mutations-grid">
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="2.5" onchange="calculate()"> <span>Sakura <b>(x2.5)</b></span></label>
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="2.5" onchange="calculate()"> <span>Magma <b>(x2.5)</b></span></label>
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="2.5" onchange="calculate()"> <span>Snowy <b>(x2.5)</b></span></label>
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="3" onchange="calculate()"> <span>Galaxy <b>(x3)</b></span></label>
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="2" onchange="calculate()"> <span>Gold <b>(x2)</b></span></label>
+                <label class="mut-item"><input type="checkbox" class="mutation-check" value="3" onchange="calculate()"> <span>Diamond <b>(x3)</b></span></label>
+            </div>
+        </section>
+
+        <section class="card results">
+            <div class="res-block">
+                <small>Final Stat</small>
+                <div class="final-value">
+                    <span id="result">0</span>
+                    <span class="unit">/ sec</span>
+                </div>
+            </div>
+            
+            <div class="summary">
+                <div class="sum-line"><span>Level multiplier</span> <span id="lvlMult">1x</span></div>
+                <div class="sum-line"><span>Mutation multiplier</span> <span id="mutMult">1x</span></div>
+                <div class="formula-box">
+                    Base × Multiplicateurs : <br>
+                    <span id="formulaText">(0 × 1 × 1)</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="brainrots.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
